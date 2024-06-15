@@ -1,12 +1,12 @@
-extends Node
+extends StaticBody2D
 
+@export var SPEED = 90
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("hello")
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	position.x += -1 * SPEED * delta
