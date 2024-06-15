@@ -33,8 +33,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ma26s"]
-radius = 0.634003
-height = 1.61103
+radius = 0.67316
+height = 2.09064
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -47,10 +47,10 @@ scale = Vector2(0.132813, 0.148438)
 sprite_frames = SubResource("SpriteFrames_8icj8")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.943649
+frame_progress = 0.12806
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.333333)
+position = Vector2(0, -0.416667)
 scale = Vector2(1.05152, 0.931082)
 shape = SubResource("CapsuleShape2D_ma26s")

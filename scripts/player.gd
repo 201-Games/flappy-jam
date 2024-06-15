@@ -1,14 +1,13 @@
 extends CharacterBody2D
 
 
-const JUMP_VELOCITY = -275.0
+const JUMP_VELOCITY = -220.0
 
 var jump_click_required = 1
 var jump_click = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animation = $AnimatedSprite2D
 
 func _physics_process(delta): 
 	# Add the gravity.
@@ -23,10 +22,8 @@ func _physics_process(delta):
 			jump_click = 0
 			velocity.y = JUMP_VELOCITY
 	
-	# Handle animation.
-	if(velocity.y > 0):
-		animation.play("fall")
-	else:
-		animation.play("jump")
+	var is_colliding = move_and_slide()
 	
-	move_and_slide()
+	if(is_colliding):
+		get_tree().reload_current_scene()
+		print(is_colliding)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c131pj0gfvcpq" path="res://assets/Tiles.png" id="2_nncvt"]
 [ext_resource type="Script" path="res://scripts/pipe-generator.gd" id="3_1605m"]
 [ext_resource type="Script" path="res://scripts/game-manager.gd" id="4_1x501"]
-[ext_resource type="Script" path="res://scripts/friend-manager.gd" id="5_2h3m8"]
+[ext_resource type="PackedScene" uid="uid://b7g2pq4x1066w" path="res://scenes/friend.tscn" id="5_pnygb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8jxt"]
 texture = ExtResource("2_nncvt")
@@ -326,7 +326,8 @@ sources/0 = SubResource("TileSetAtlasSource_n8jxt")
 metadata/_edit_horizontal_guides_ = [-168.0, 29.0]
 
 [node name="Player" parent="." instance=ExtResource("1_1gfan")]
-position = Vector2(-70, -79)
+unique_name_in_owner = true
+position = Vector2(-69, -82)
 scale = Vector2(5.93103, 5.875)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -361,8 +362,8 @@ autostart = true
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("4_1x501")
 
-[node name="FriendManager" type="Node" parent="."]
-script = ExtResource("5_2h3m8")
+[node name="Friend" parent="." instance=ExtResource("5_pnygb")]
+position = Vector2(-83, -83)
+scale = Vector2(0.1, 0.1)
 
 [connection signal="timeout" from="PipeManager/Timer" to="PipeManager" method="_on_timer_timeout"]
-[connection signal="add_friend" from="GameManager" to="FriendManager" method="_on_game_manager_add_friend"]
